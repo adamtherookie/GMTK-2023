@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://yaqdxras50w8"]
+
+[ext_resource type="Script" path="res://Elements/bullet.gd" id="1_kpwmk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u1dp8"]
+radius = 32.0
+
+[node name="Bullet" type="Area2D"]
+collision_layer = 11
+collision_mask = 11
+script = ExtResource("1_kpwmk")
+
+[node name="Line2D2" type="Line2D" parent="."]
+scale = Vector2(0.1, 0.1)
+points = PackedVector2Array(32, 0, -32, 0)
+
+[node name="Line2D" type="Line2D" parent="."]
+scale = Vector2(0.1, 0.1)
+points = PackedVector2Array(0, -32, 0, 32)
+
+[node name="Line2D4" type="Line2D" parent="."]
+position = Vector2(-0.936435, -0.373776)
+rotation = 2.35619
+scale = Vector2(0.1, 0.1)
+skew = -0.402765
+points = PackedVector2Array(32, 0, -32, 0)
+
+[node name="Line2D3" type="Line2D" parent="."]
+position = Vector2(-0.446457, -0.446457)
+rotation = 0.785398
+scale = Vector2(0.1, 0.1)
+points = PackedVector2Array(32, 0, -32, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.1, 0.1)
+shape = SubResource("CircleShape2D_u1dp8")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://k0upecwo6imt"]
+
+[ext_resource type="Script" path="res://explosion.gd" id="1_ic6qx"]
+
+[sub_resource type="Gradient" id="Gradient_3trha"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[node name="Explosion" type="Node2D"]
+script = ExtResource("1_ic6qx")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 100
+lifetime = 2.0
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 10.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 100.0
+angular_velocity_min = -10.0
+angular_velocity_max = 10.0
+color_ramp = SubResource("Gradient_3trha")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxsepw0b5i8yg"]
+
+[ext_resource type="Script" path="res://Elements/spawn.gd" id="1_g8855"]
+[ext_resource type="PackedScene" uid="uid://bvbopsnf5tdwc" path="res://spaceship.tscn" id="2_ijrid"]
+
+[node name="Spawn" type="Node2D"]
+script = ExtResource("1_g8855")
+enemy = ExtResource("2_ijrid")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

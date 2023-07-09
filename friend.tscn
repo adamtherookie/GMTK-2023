@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2dwfel6hjdcj"]
+
+[ext_resource type="Script" path="res://friend.gd" id="1_7ftd6"]
+
+[node name="Friend" type="CharacterBody2D" groups=["friends"]]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_7ftd6")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(16, 3)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+points = PackedVector2Array(0, -40, 40, -40, 120, 40, 160, 160, 80, 200, 40, 120, -40, 120, -80, 200, -160, 160, -120, 40, -40, -40, 0, -40)
+width = 20.0
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(16, 3)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(-40, -40, 40, -40, 120, 40, 160, 160, 80, 200, 40, 120, -40, 120, -80, 200, -160, 160, -120, 40)
+
+[node name="Line2D3" type="Line2D" parent="."]
+position = Vector2(15, 61.0191)
+rotation = 1.5708
+scale = Vector2(1.60032, 0.5)
+points = PackedVector2Array(-40, -40, -40, 23.3219, -40, 120)
+width = 20.0
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D2" type="Line2D" parent="."]
+position = Vector2(16, 66.7288)
+rotation = 1.5708
+scale = Vector2(1.43644, 0.5)
+points = PackedVector2Array(-40, -40, -40, 120)
+width = 20.0
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(70, 0)

@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccw67vu1muw4u"]
+
+[ext_resource type="Script" path="res://Elements/crosshair.gd" id="1_6rtax"]
+
+[node name="Crosshair" type="Node2D"]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_6rtax")
+
+[node name="Line2D2" type="Line2D" parent="."]
+position = Vector2(26, 24)
+rotation = 3.14159
+points = PackedVector2Array(-8, -16, -24, 0, -24, 17.4152, -24, 48, -8, 64)
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(-26, -24)
+points = PackedVector2Array(-8, -16, -24, 0, -24, 48, -8, 64)
+
+[node name="Line2D3" type="Line2D" parent="."]
+position = Vector2(-16, -8)
+points = PackedVector2Array(16, 0, 16, 16)

@@ -1,0 +1,97 @@
+[gd_scene load_steps=12 format=3 uid="uid://bmvrjbnyq80y3"]
+
+[ext_resource type="PackedScene" uid="uid://dm33dpigusns1" path="res://global.tscn" id="1_k78ms"]
+[ext_resource type="FontFile" uid="uid://dy7w82vef4nkw" path="res://BMSPA___.TTF" id="1_qomlg"]
+[ext_resource type="Script" path="res://Levels/start_screen.gd" id="1_vslk7"]
+[ext_resource type="PackedScene" uid="uid://23hukie6m3qe" path="res://Asteroids/asteroid_big.tscn" id="2_gge02"]
+[ext_resource type="PackedScene" uid="uid://cxsepw0b5i8yg" path="res://Elements/spawn.tscn" id="3_g4220"]
+[ext_resource type="PackedScene" uid="uid://bijd87a07uvg0" path="res://Asteroids/asteroid_medium.tscn" id="3_ikk6e"]
+[ext_resource type="PackedScene" uid="uid://k21maaimtfko" path="res://Asteroids/asteroid_small.tscn" id="4_ylhjk"]
+[ext_resource type="PackedScene" uid="uid://ccw67vu1muw4u" path="res://Elements/crosshair.tscn" id="7_1l550"]
+[ext_resource type="PackedScene" uid="uid://2tjgs0jq74t5" path="res://scene_transition_rect.tscn" id="9_7xxwh"]
+[ext_resource type="Script" path="res://typewriter.gd" id="9_yo4u1"]
+[ext_resource type="AudioStream" uid="uid://bdq21v2ymsf4m" path="res://Audio/select.mp3" id="11_4mcif"]
+
+[node name="Start screen" type="Node2D"]
+script = ExtResource("1_vslk7")
+
+[node name="Global" parent="." instance=ExtResource("1_k78ms")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -296.0
+offset_top = -232.0
+offset_right = 1624.0
+offset_bottom = 1016.0
+color = Color(0, 0, 0, 1)
+
+[node name="Spawn" parent="." instance=ExtResource("3_g4220")]
+position = Vector2(88, 72)
+enemy = ExtResource("2_gge02")
+max_enemies = 20
+delay = 0.1
+
+[node name="Spawn2" parent="." instance=ExtResource("3_g4220")]
+position = Vector2(1240, 640)
+enemy = ExtResource("3_ikk6e")
+max_enemies = 20
+delay = 0.1
+
+[node name="Spawn3" parent="." instance=ExtResource("3_g4220")]
+position = Vector2(104, 664)
+enemy = ExtResource("4_ylhjk")
+max_enemies = 20
+delay = 0.1
+
+[node name="Spawn4" parent="." instance=ExtResource("3_g4220")]
+position = Vector2(1208, 48)
+enemy = ExtResource("4_ylhjk")
+max_enemies = 20
+delay = 0.1
+
+[node name="Crosshair" parent="." instance=ExtResource("7_1l550")]
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+z_index = 99
+offset_left = 507.0
+offset_top = 309.0
+offset_right = 835.0
+offset_bottom = 421.0
+color = Color(0, 0, 0, 0.756863)
+
+[node name="Label" type="Label" parent="."]
+z_index = 100
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 435.0
+offset_top = 315.0
+offset_right = 915.0
+offset_bottom = 423.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_qomlg")
+theme_override_font_sizes/font_size = 50
+text = "ASTEROID
+DEFENSE"
+horizontal_alignment = 1
+script = ExtResource("9_yo4u1")
+factor = 5
+
+[node name="Button" type="Button" parent="."]
+offset_left = 619.0
+offset_top = 480.0
+offset_right = 723.0
+offset_bottom = 536.0
+theme_override_fonts/font = ExtResource("1_qomlg")
+text = "PLAY"
+
+[node name="SceneTransitionRect" parent="." instance=ExtResource("9_7xxwh")]
+next_scene_path = "res://Levels/tutorial.tscn"
+
+[node name="Play" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_4mcif")
+volume_db = 24.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

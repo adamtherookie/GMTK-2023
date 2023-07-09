@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbt5e46ib3t1q"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_vy3hh"]
+[ext_resource type="PackedScene" uid="uid://yaqdxras50w8" path="res://Elements/bullet.tscn" id="2_3m8xt"]
+[ext_resource type="AudioStream" uid="uid://dpo3fv7u6g11c" path="res://Audio/laser.mp3" id="3_wix5x"]
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_vy3hh")
+bullet = ExtResource("2_3m8xt")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+clip_children = 2
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
+[node name="body" type="Node2D" parent="."]
+position = Vector2(-65, 3.8147e-06)
+
+[node name="Line2D" type="Line2D" parent="body"]
+points = PackedVector2Array(0, 0, 128, 0)
+width = 20.0
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D3" type="Line2D" parent="body"]
+points = PackedVector2Array(0, 0, 0, 24, 24, 48, 56, 56, 72, 56, 104, 48, 128, 24, 128, 0)
+width = 20.0
+joint_mode = 2
+
+[node name="Line2D2" type="Line2D" parent="body"]
+points = PackedVector2Array(32, 0, 32, -24, 56, -40, 72, -40, 96, -24, 96, 0)
+width = 20.0
+joint_mode = 2
+
+[node name="Line2D6" type="Line2D" parent="body"]
+position = Vector2(32, 0)
+points = PackedVector2Array(24, 24, 40, 24)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D5" type="Line2D" parent="body"]
+position = Vector2(-8, 0)
+points = PackedVector2Array(32, 24, 40, 24)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D4" type="Line2D" parent="body"]
+position = Vector2(64, 0)
+points = PackedVector2Array(32, 24, 40, 24)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-65, 3.8147e-06)
+polygon = PackedVector2Array(32, 0, 32, -24, 56, -40, 72, -40, 96, -24, 96, 0, 128, 0, 128, 24, 104, 48, 80, 56, 56, 56, 24, 48, 0, 24, 0, 0)
+one_way_collision = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_wix5x")

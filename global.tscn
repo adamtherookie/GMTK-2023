@@ -1,0 +1,25 @@
+[gd_scene load_steps=8 format=3 uid="uid://dm33dpigusns1"]
+
+[ext_resource type="Script" path="res://global.gd" id="1_mqpk1"]
+[ext_resource type="PackedScene" uid="uid://23hukie6m3qe" path="res://Asteroids/asteroid_big.tscn" id="2_xnhhm"]
+[ext_resource type="PackedScene" uid="uid://bijd87a07uvg0" path="res://Asteroids/asteroid_medium.tscn" id="3_4go85"]
+[ext_resource type="PackedScene" uid="uid://k21maaimtfko" path="res://Asteroids/asteroid_small.tscn" id="4_c0yys"]
+[ext_resource type="PackedScene" uid="uid://k0upecwo6imt" path="res://explosion.tscn" id="5_smvv7"]
+[ext_resource type="AudioStream" uid="uid://ehu8osk58bq4" path="res://Audio/loop.mp3" id="6_spxyt"]
+[ext_resource type="AudioStream" uid="uid://clpj2ly3fles6" path="res://Audio/music.mp3" id="7_s7u7e"]
+
+[node name="Global" type="Node2D"]
+script = ExtResource("1_mqpk1")
+big = ExtResource("2_xnhhm")
+medium = ExtResource("3_4go85")
+small = ExtResource("4_c0yys")
+explosion = ExtResource("5_smvv7")
+
+[node name="ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_spxyt")
+pitch_scale = 1.5
+autoplay = true
+
+[node name="moosic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_s7u7e")
+autoplay = true

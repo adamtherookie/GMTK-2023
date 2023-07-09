@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://k21maaimtfko"]
+
+[ext_resource type="Script" path="res://Asteroids/asteroid.gd" id="1_onji5"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tsewp"]
+friction = 0.0
+rough = true
+absorbent = true
+
+[node name="AsteroidSmall" type="RigidBody2D" groups=["asteroids", "small"]]
+collision_layer = 8
+collision_mask = 2
+mass = 250.0
+physics_material_override = SubResource("PhysicsMaterial_tsewp")
+gravity_scale = 0.0
+script = ExtResource("1_onji5")
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(-7, -8)
+scale = Vector2(0.2, 0.2)
+points = PackedVector2Array(8, 0, 22.3825, 0, 42.5412, 0, 72, 0, 120, 40, 80, 80, 48, 64, 8, 96, -40, 64, -16, 0, 16, 0)
+width = 20.0
+joint_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-7, -8)
+scale = Vector2(0.2, 0.2)
+polygon = PackedVector2Array(72, 0, 120, 40, 80, 80, 48, 64, 8, 96, -40, 64, -16, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="KillTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 100
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 10.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 100.0
+angular_velocity_min = -10.0
+angular_velocity_max = 10.0

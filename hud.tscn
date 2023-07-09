@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://l4cf80wva06r"]
+
+[ext_resource type="FontFile" uid="uid://dy7w82vef4nkw" path="res://BMSPA___.TTF" id="1_1sm4o"]
+[ext_resource type="Script" path="res://Time.gd" id="1_81her"]
+
+[node name="HUD" type="CanvasGroup"]
+
+[node name="Asteroids" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 33.0
+theme_override_colors/font_shadow_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+theme_override_fonts/font = ExtResource("1_1sm4o")
+
+[node name="Enemies" type="Label" parent="."]
+offset_left = 184.0
+offset_top = 10.0
+offset_right = 224.0
+offset_bottom = 33.0
+theme_override_colors/font_shadow_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+theme_override_fonts/font = ExtResource("1_1sm4o")
+
+[node name="Allies" type="Label" parent="."]
+offset_left = 324.0
+offset_top = 10.0
+offset_right = 364.0
+offset_bottom = 33.0
+theme_override_colors/font_shadow_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+theme_override_fonts/font = ExtResource("1_1sm4o")
+
+[node name="Time" type="Label" parent="."]
+offset_left = 1088.0
+offset_top = 10.0
+offset_right = 1128.0
+offset_bottom = 33.0
+theme_override_colors/font_shadow_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+theme_override_fonts/font = ExtResource("1_1sm4o")
+script = ExtResource("1_81her")

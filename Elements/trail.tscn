@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgfhaqyrqpln8"]
+
+[ext_resource type="Script" path="res://Elements/trail.gd" id="1_rvogn"]
+
+[sub_resource type="Curve" id="Curve_4h8nf"]
+_data = [Vector2(0, 0.300613), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_71j51"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.339695, 1)
+
+[node name="line2d" type="Line2D"]
+width_curve = SubResource("Curve_4h8nf")
+gradient = SubResource("Gradient_71j51")
+script = ExtResource("1_rvogn")
+trail_length = 20
