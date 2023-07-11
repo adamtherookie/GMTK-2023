@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://k0upecwo6imt"]
+[gd_scene load_steps=4 format=3 uid="uid://k0upecwo6imt"]
 
 [ext_resource type="Script" path="res://explosion.gd" id="1_ic6qx"]
+[ext_resource type="AudioStream" uid="uid://jy3x2hpnrh8l" path="res://Audio/explode.mp3" id="2_svv58"]
 
 [sub_resource type="Gradient" id="Gradient_3trha"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [node name="Explosion" type="Node2D"]
 script = ExtResource("1_ic6qx")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_svv58")
+volume_db = -23.669
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 amount = 100

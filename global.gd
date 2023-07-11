@@ -8,7 +8,8 @@ extends Node2D
 
 @export var explosion : PackedScene
 
-var asteroids = 0
+@onready var asteroids = 0
+@onready var time = 0
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN

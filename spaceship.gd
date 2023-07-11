@@ -58,3 +58,4 @@ func destroy():
 
 func _on_timer_2_timeout():
 	destroy()
+

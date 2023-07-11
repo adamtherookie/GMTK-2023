@@ -1,0 +1,98 @@
+[gd_scene load_steps=14 format=3 uid="uid://bs6l6l1sinx2d"]
+
+[ext_resource type="PackedScene" uid="uid://dm33dpigusns1" path="res://global.tscn" id="1_ygfl5"]
+[ext_resource type="PackedScene" uid="uid://cgfhaqyrqpln8" path="res://Elements/trail.tscn" id="2_vpf4x"]
+[ext_resource type="PackedScene" uid="uid://cbt5e46ib3t1q" path="res://player.tscn" id="3_paivy"]
+[ext_resource type="PackedScene" uid="uid://cxsepw0b5i8yg" path="res://Elements/spawn.tscn" id="4_32yjr"]
+[ext_resource type="PackedScene" uid="uid://23hukie6m3qe" path="res://Asteroids/asteroid_big.tscn" id="5_hhs1p"]
+[ext_resource type="PackedScene" uid="uid://c2dwfel6hjdcj" path="res://friend.tscn" id="6_tw362"]
+[ext_resource type="PackedScene" uid="uid://ccw67vu1muw4u" path="res://Elements/crosshair.tscn" id="7_601rd"]
+[ext_resource type="PackedScene" uid="uid://l4cf80wva06r" path="res://hud.tscn" id="8_uadhr"]
+[ext_resource type="Script" path="res://hud.gd" id="9_7ah55"]
+[ext_resource type="PackedScene" uid="uid://2tjgs0jq74t5" path="res://scene_transition_rect.tscn" id="10_ew43n"]
+[ext_resource type="FontFile" uid="uid://dy7w82vef4nkw" path="res://BMSPA___.TTF" id="11_pe47p"]
+[ext_resource type="Script" path="res://typewriter.gd" id="12_nidth"]
+
+[sub_resource type="GDScript" id="GDScript_61uym"]
+
+[node name="Level 3" type="Node2D"]
+position = Vector2(-2, 0)
+script = SubResource("GDScript_61uym")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(682, 384)
+
+[node name="Global" parent="." instance=ExtResource("1_ygfl5")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -838.0
+offset_top = -736.0
+offset_right = -747.0
+offset_bottom = 1912.0
+scale = Vector2(32.2, 1)
+color = Color(0, 0, 0, 1)
+
+[node name="line2d" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_vpf4x")]
+target = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource("3_paivy")]
+position = Vector2(482, 368)
+
+[node name="Spawn" parent="." instance=ExtResource("4_32yjr")]
+position = Vector2(74, 376)
+enemy = ExtResource("5_hhs1p")
+max_enemies = 50
+delay = 0.1
+
+[node name="Spawn2" parent="." instance=ExtResource("4_32yjr")]
+position = Vector2(1250, 392)
+enemy = ExtResource("5_hhs1p")
+max_enemies = 50
+delay = 0.1
+
+[node name="Spawn7" parent="." instance=ExtResource("4_32yjr")]
+position = Vector2(706, 1000)
+max_enemies = 60
+delay = 0.3
+
+[node name="Spawn8" parent="." instance=ExtResource("4_32yjr")]
+position = Vector2(666, -104)
+max_enemies = 60
+delay = 0.3
+
+[node name="Spawn4" parent="." instance=ExtResource("4_32yjr")]
+position = Vector2(706, 552)
+enemy = ExtResource("6_tw362")
+max_enemies = 50
+delay = 0.5
+
+[node name="Spawn5" parent="." instance=ExtResource("4_32yjr")]
+position = Vector2(706, 232)
+enemy = ExtResource("6_tw362")
+max_enemies = 50
+delay = 0.5
+
+[node name="Crosshair" parent="." instance=ExtResource("7_601rd")]
+position = Vector2(34, 32)
+
+[node name="HUD" parent="." instance=ExtResource("8_uadhr")]
+position = Vector2(74, 40)
+script = ExtResource("9_7ah55")
+
+[node name="SceneTransitionRect" parent="." instance=ExtResource("10_ew43n")]
+offset_left = 266.0
+offset_top = 328.0
+offset_right = 266.0
+offset_bottom = 328.0
+next_scene_path = "res://Levels/level6.tscn"
+
+[node name="Win" type="Label" parent="."]
+visible = false
+offset_left = 266.0
+offset_top = 328.0
+offset_right = 737.0
+offset_bottom = 354.0
+theme_override_fonts/font = ExtResource("11_pe47p")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("12_nidth")

@@ -53,6 +53,14 @@ delay = 0.5
 position = Vector2(658, -64)
 enemy = ExtResource("7_qqc64")
 
+[node name="Spawn5" parent="." instance=ExtResource("5_p48vg")]
+position = Vector2(658, -64)
+enemy = ExtResource("7_qqc64")
+
+[node name="Spawn6" parent="." instance=ExtResource("5_p48vg")]
+position = Vector2(658, -64)
+enemy = ExtResource("7_qqc64")
+
 [node name="Crosshair" parent="." instance=ExtResource("8_l0ed8")]
 position = Vector2(34, 32)
 

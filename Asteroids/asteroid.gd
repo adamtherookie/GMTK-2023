@@ -23,9 +23,18 @@ func _ready():
 
 @warning_ignore("unused_parameter")
 func _physics_process(delta):
-	if global_position.x < 0 or global_position.x > screensize.x:
+	if global_position.x < 0:
+		global_position.x = 0
+	if global_position.x > screensize.x:
+		global_position.x = screensize.x
+	if global_position.y < 0:
+		global_position.y = 0
+	if global_position.y > screensize.y:
+		global_position.y = screensize.y
+	
+	if global_position.x <= 0 or global_position.x >= screensize.x:
 		linear_velocity.x *= -1
-	if global_position.y < 0 or global_position.y > screensize.y:
+	if global_position.y <= 0 or global_position.y >= screensize.y:
 		linear_velocity.y *= -1
 
 	move_and_collide(linear_velocity)
@@ -70,6 +79,7 @@ func split():
 
 func destroy():
 	var ex = explosion.instantiate()
+	ex.get_node("AudioStreamPlayer").stop()
 	ex.transform = global_transform
 	get_parent().add_child(ex)
 	

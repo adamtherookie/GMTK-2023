@@ -78,7 +78,7 @@ offset_left = 266.0
 offset_top = 328.0
 offset_right = 266.0
 offset_bottom = 328.0
-next_scene_path = "res://Levels/end_screen.tscn"
+next_scene_path = "res://Levels/level4.tscn"
 
 [node name="Win" type="Label" parent="."]
 visible = false

@@ -37,3 +37,7 @@ offset_bottom = 33.0
 theme_override_colors/font_shadow_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 theme_override_fonts/font = ExtResource("1_1sm4o")
 script = ExtResource("1_81her")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
